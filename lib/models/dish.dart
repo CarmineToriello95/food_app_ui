@@ -1,11 +1,11 @@
-class Plate {
+class Dish {
   String name;
   String shortDescription;
   String imagePath;
   String price;
   String description;
 
-  Plate(
+  Dish(
       {this.name,
       this.shortDescription,
       this.imagePath,

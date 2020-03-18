@@ -31,33 +31,35 @@ class CarouselItem extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                // Food title
+                // Dish title
                 Text(
                   title,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
                 ),
                 SizedBox(height: 8.0),
-                // Food short description
+                // Dish short description
                 Text(
                   subtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16.0),
                 ),
                 SizedBox(height: 8.0),
-                //Food image path
+                //Dish image path
                 imageAssetPath != null
                     ? Image.asset(imageAssetPath)
                     : Container(
                         height: 200.0,
                       ),
                 SizedBox(height: 8.0),
+                //Dish price
                 Text(
                   price,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8.0),
+                // Dish description
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
@@ -67,6 +69,7 @@ class CarouselItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16.0),
+                // Buy button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
