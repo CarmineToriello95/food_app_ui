@@ -35,7 +35,8 @@ class CarouselItem extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
                 ),
                 SizedBox(height: 8.0),
                 // Dish short description
@@ -45,9 +46,9 @@ class CarouselItem extends StatelessWidget {
                   style: TextStyle(fontSize: 16.0),
                 ),
                 SizedBox(height: 8.0),
-                //Dish image path
+                //Dish image
                 imageAssetPath != null
-                    ? Image.asset(imageAssetPath)
+                    ? Hero(tag: imageAssetPath, child: Image.asset(imageAssetPath))
                     : Container(
                         height: 200.0,
                       ),

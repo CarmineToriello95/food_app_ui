@@ -1,4 +1,3 @@
-import 'package:food_app_ui/screens/details.dart';
 import 'package:food_app_ui/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +12,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.orange[300],
         accentColor: Colors.black,
       ),
-      home: Details(),
+      home: Home(),
     );
   }
 }
-
-

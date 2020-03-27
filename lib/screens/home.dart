@@ -4,14 +4,16 @@ import 'package:food_app_ui/models/dish.dart';
 import 'package:food_app_ui/widgets/carousel_dots.dart';
 import 'package:food_app_ui/widgets/carousel_item.dart';
 
-class MyHomePage extends StatefulWidget {
+import 'details.dart';
+
+class Home extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeState extends State<Home> {
   List<String> _nationalities;
-  List<Dish> _plates = List();
+  List<Dish> _dishes;
   PageController _pageController;
   int _nationalitiesSelectedIndex = 0;
   int _currentIndex = 0;
@@ -21,16 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _pageController = PageController(initialPage: 0, viewportFraction: 0.8);
     _nationalities = ['Polish', 'Peruvian', 'Italian', 'French', 'Spanish'];
-    for (int i = 0; i < 3; i++) {
-      _plates.add(
-        Dish(
-            name: 'Grilled beef',
-            shortDescription: 'Peruvian food',
-            imagePath: 'assets/images/peruvian_grilled_beef.jpg',
-            price: '\$ 8.00',
-            description: 'grilled beaf steak and potatoes on plate isolated'),
-      );
-    }
+    _dishes = DishesGenerator.dishes;
     _pageController.addListener(() {
       int next = _pageController.page.round();
       if (_currentIndex != next) {
@@ -104,24 +97,32 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 550,
             child: PageView.builder(
                 controller: _pageController,
-                itemCount: _plates.length,
+                itemCount: _dishes.length,
                 itemBuilder: (_, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: CarouselItem(
-                      isActive: index == _currentIndex,
-                      title: _plates[index].name,
-                      description: _plates[index].description,
-                      subtitle: _plates[index].shortDescription,
-                      imageAssetPath: _plates[index].imagePath,
-                      price: _plates[index].price,
+                    child: GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => Details(dish: _dishes[index]),
+                        ),
+                      ),
+                      child: CarouselItem(
+                        isActive: index == _currentIndex,
+                        title: _dishes[index].name,
+                        description: _dishes[index].description,
+                        subtitle: _dishes[index].shortDescription,
+                        imageAssetPath: _dishes[index].imagePath,
+                        price: _dishes[index].price,
+                      ),
                     ),
                   );
                 }),
           ),
           SizedBox(height: 8.0),
           CarouselDots(
-            dotsNumber: _plates.length,
+            dotsNumber: _dishes.length,
             activeDotIndex: _currentIndex,
           ),
         ],
