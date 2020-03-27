@@ -6,4 +6,4 @@ https://dribbble.com/shots/7014343-Fast-food-UI-Design
 
 Carousel animation and screen transition have been added to it.
 
-<img src="fast_food_ui.gif" alt="drawing" width="200"/>
+<img src="food_ui.gif" alt="drawing" width="200"/>
