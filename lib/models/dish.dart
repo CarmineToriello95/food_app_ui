@@ -17,7 +17,7 @@ class DishesGenerator {
   static List<Dish> dishes = [
     Dish(
         name: 'Grilled beef',
-        shortDescription: 'Peruvian food',
+        shortDescription: '',
         imagePath: 'assets/images/peruvian_grilled_beef.jpg',
         price: '\$ 10.00',
         description: 'Grilled beaf steak and potatoes on plate isolated'),

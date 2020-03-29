@@ -25,10 +25,12 @@ class Details extends StatelessWidget {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: CircleAvatar(
-              maxRadius: 15.0,
-              minRadius: 15.0,
-              backgroundColor: Colors.black.withOpacity(0.5),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/images/avatar.png',
+                width: 35,
+                height: 35,
+              ),
             ),
           )
         ],
@@ -58,7 +60,10 @@ class Details extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24.0),
                         ),
-                        Icon(FontAwesomeIcons.heart),
+                        Icon(
+                          FontAwesomeIcons.solidHeart,
+                          color: Colors.red[400],
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -75,8 +80,16 @@ class Details extends StatelessWidget {
                       height: 8.0,
                     ),
                     Hero(
-                        tag: dish.imagePath,
-                        child: Image.asset(dish.imagePath)),
+                      tag: dish.imagePath,
+                      child: ClipOval(
+                        child: Image.asset(
+                          dish.imagePath,
+                          height: 300,
+                          width: 300,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: 24.0,
                     ),

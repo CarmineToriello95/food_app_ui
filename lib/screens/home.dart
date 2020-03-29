@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: 0, viewportFraction: 0.8);
-    _nationalities = ['Polish', 'Peruvian', 'Italian', 'French', 'Spanish'];
+    _nationalities = ['French', 'Spanish', 'Peruvian', 'Italian', 'Polish'];
     _dishes = DishesGenerator.dishes;
     _pageController.addListener(() {
       int next = _pageController.page.round();
@@ -60,10 +60,12 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: CircleAvatar(
-              maxRadius: 15.0,
-              minRadius: 15.0,
-              backgroundColor: Colors.black.withOpacity(0.5),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/images/avatar.png',
+                width: 35,
+                height: 35,
+              ),
             ),
           )
         ],
