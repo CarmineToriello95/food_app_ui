@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   font_awesome_flutter: ^8.7.0
 
 dev_dependencies:
